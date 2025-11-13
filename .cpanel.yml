@@ -1,0 +1,9 @@
+deployment:
+  tasks:
+    - echo "Starting Laravel deployment..." >> deploy.log
+    - /home/into4859/bin/composer update --no-dev --optimize-autoloader >> deploy.log 2>&1
+    - php artisan optimize >> deploy.log 2>&1
+    - php artisan migrate --force >> deploy.log 2>&1
+    - php artisan config:cache >> deploy.log 2>&1
+    - php artisan route:cache >> deploy.log 2>&1
+    - php artisan view:cache >> deploy.log 2>&1
