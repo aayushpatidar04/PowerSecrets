@@ -150,12 +150,9 @@
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <h5 class="text-white mb-4">Our Services</h5>
-                    <a class="btn btn-link" href="">Energy Audit</a>
-                    <a class="btn btn-link" href="">Thermography Audit</a>
-                    <a class="btn btn-link" href="">Safety Audit</a>
-                    <a class="btn btn-link" href="">Data Center Audit</a>
-                    <a class="btn btn-link" href="">Cooling Audit</a>
-                    <a class="btn btn-link" href="">Energy Saver Solutions</a>
+                    @foreach ($services as $service)
+                        <a class="btn btn-link" href="{{ Route('audit-services', ['slug' => $service->slug]) }}">{{ $service->name }}</a>
+                    @endforeach
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <h5 class="text-white mb-4">Quick Links</h5>

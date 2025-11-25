@@ -11,6 +11,10 @@ class Service extends Model
     protected $fillable = [
         'name',
         'slug',
-        'content'
+        'content',
+        'meta_title',
+        'meta_description',
+        'meta_keywords',
+        'json_data'
     ];
 }

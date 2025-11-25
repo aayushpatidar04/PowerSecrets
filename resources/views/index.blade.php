@@ -187,7 +187,7 @@
                             <h4 class="mb-3">Energy Audit</h4>
                             <p>Comprehensive analysis of energy consumption patterns to identify cost-saving opportunities with detailed ROI calculations.</p>
                             <p><i class="fa fa-check text-success me-2"></i>Load analysis & power quality<br><i class="fa fa-check text-success me-2"></i>Equipment efficiency assessment<br><i class="fa fa-check text-success me-2"></i>Energy conservation measures</p>
-                            <a class="small fw-medium" href="">Read More<i class="fa fa-arrow-right ms-2"></i></a>
+                            <a class="small fw-medium" href="{{ Route('audit-services', ['slug'=> 'energy-audit']) }}">Read More<i class="fa fa-arrow-right ms-2"></i></a>
                         </div>
                     </div>
                 </div>
@@ -201,7 +201,7 @@
                             <h4 class="mb-3">Thermography Audit</h4>
                             <p>Advanced thermal imaging to detect electrical faults, equipment overheating, and energy losses before they become costly failures.</p>
                             <p><i class="fa fa-check text-success me-2"></i>Electrical system scanning<br><i class="fa fa-check text-success me-2"></i>Hotspot Detection<br><i class="fa fa-check text-success me-2"></i>Predictive maintenance planning<br><i class="fa fa-check text-success me-2"></i>Thermal efficiency analysis</p>
-                            <a class="small fw-medium" href="">Read More<i class="fa fa-arrow-right ms-2"></i></a>
+                            <a class="small fw-medium" href="{{ Route('audit-services', ['slug'=> 'thermography-audit']) }}">Read More<i class="fa fa-arrow-right ms-2"></i></a>
                         </div>
                     </div>
                 </div>
@@ -215,7 +215,7 @@
                             <h4 class="mb-3">Safety Audit</h4>
                             <p>Comprehensive electrical safety assessments ensuring compliance with national standards and workplace safety regulations.</p>
                             <p><i class="fa fa-check text-success me-2"></i>Code compliance verification<br><i class="fa fa-check text-success me-2"></i>Risk assessment & mitigation<br><i class="fa fa-check text-success me-2"></i>Safety procedure development</p>
-                            <a class="small fw-medium" href="">Read More<i class="fa fa-arrow-right ms-2"></i></a>
+                            <a class="small fw-medium" href="{{ Route('audit-services', ['slug'=> 'safety-audit']) }}">Read More<i class="fa fa-arrow-right ms-2"></i></a>
                         </div>
                     </div>
                 </div>
@@ -229,7 +229,7 @@
                             <h4 class="mb-3">Data Center Audit</h4>
                             <p>Specialized audits for data centers focusing on power usage effectiveness (PUE) optimization and infrastructure efficiency.</p>
                             <p><i class="fa fa-check text-success me-2"></i>PUE calculation & optimization<br><i class="fa fa-check text-success me-2"></i>Cooling system efficiency<br><i class="fa fa-check text-success me-2"></i>Power distribution analysis</p>
-                            <a class="small fw-medium" href="">Read More<i class="fa fa-arrow-right ms-2"></i></a>
+                            <a class="small fw-medium" href="{{ Route('audit-services', ['slug'=> 'data-center-audit']) }}">Read More<i class="fa fa-arrow-right ms-2"></i></a>
                         </div>
                     </div>
                 </div>
@@ -243,7 +243,7 @@
                             <h4 class="mb-3">Cooling Audit</h4>
                             <p>HVAC and cooling system evaluation to maximize efficiency while maintaining optimal environmental conditions.</p>
                             <p><i class="fa fa-check text-success me-2"></i>HVAC system optimization<br><i class="fa fa-check text-success me-2"></i>Energy conservation opportunities<br><i class="fa fa-check text-success me-2"></i>ECO report with recommendations</p>
-                            <a class="small fw-medium" href="">Read More<i class="fa fa-arrow-right ms-2"></i></a>
+                            <a class="small fw-medium" href="{{ Route('audit-services', ['slug'=> 'cooling-audit']) }}">Read More<i class="fa fa-arrow-right ms-2"></i></a>
                         </div>
                     </div>
                 </div>

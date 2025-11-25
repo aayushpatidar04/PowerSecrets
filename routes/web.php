@@ -22,6 +22,7 @@ Route::get('/contact', function() {
 })->name('contact');
 
 Route::get('services/{slug}', [OpenController::class, 'services'])->name('audit-services');
+Route::get('blog/{slug}', [OpenController::class, 'blog'])->name('blog');
 
 Auth::routes(['register' => false]);
 

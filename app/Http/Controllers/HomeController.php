@@ -121,13 +121,21 @@ class HomeController extends Controller
         $request->validate([
             'name' => 'required|unique:services,name',
             'slug' => 'required|unique:services,slug',
-            'content' => 'required'
+            'content' => 'required',
+            'meta_title' => 'required',
+            'meta_description' => 'required',
+            'meta_keywords' => 'required',
+            'json_data' => 'required',
         ]);
 
         $service = new Service();
         $service->name = $request->name;
         $service->slug = $request->slug;
         $service->content = $request->content;
+        $service->meta_title = $request->meta_title;
+        $service->meta_description = $request->meta_description;
+        $service->meta_keywords = $request->meta_keywords;
+        $service->json_data = $request->json_data;
 
         $service->save();
 
@@ -139,13 +147,21 @@ class HomeController extends Controller
             'id' => 'required|exists:services,id',
             'name' => 'required|unique:services,name'.$request->id,
             'slug' => 'required|unique:services,slug'.$request->id,
-            'content' => 'required'
+            'content' => 'required',
+            'meta_title' => 'required',
+            'meta_description' => 'required',
+            'meta_keywords' => 'required',
+            'json_data' => 'required',
         ]);
 
         $service = Service::find($request->id);
         $service->name = $request->name;
         $service->slug = $request->slug;
         $service->content = $request->content;
+        $service->meta_title = $request->meta_title;
+        $service->meta_description = $request->meta_description;
+        $service->meta_keywords = $request->meta_keywords;
+        $service->json_data = $request->json_data;
 
         $service->save();
 

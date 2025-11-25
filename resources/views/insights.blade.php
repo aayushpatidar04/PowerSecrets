@@ -56,7 +56,7 @@
                             <h3>{{ $featuredBlog->title }}</h3>
                             <p>{{ $featuredBlog->short_description }}</p>
                             <div>
-                                <a href="" class="text-primary float-end">Read More &rarr;</a>
+                                <a href="{{ Route('blog', ['slug' => $featuredBlog->slug]) }}" class="text-primary float-end">Read More &rarr;</a>
                             </div>
                         </div>
                     </div>
@@ -74,7 +74,7 @@
                             <h4>{{ $blog->title }}</h4>
                             <p>{{ $blog->short_description }}</p>
                             <div>
-                                <a href="" style="color: purple;"><b>Read Article &rarr;</b></a>
+                                <a href="{{ Route('blog', ['slug' => $blog->slug]) }}" style="color: purple;"><b>Read Article &rarr;</b></a>
                             </div>
                         </div>
                     @endforeach
@@ -174,7 +174,7 @@
                                 <h5>{{ $blog->title }}</h5>
                                 <p>{{ $blog->short_description }}</p>
                                 <div>
-                                    <a href="" class="text-primary float-end">Read More &rarr;</a>
+                                    <a href="{{ Route('blog', ['slug' => $blog->slug]) }}" class="text-primary float-end">Read More &rarr;</a>
                                 </div>
                             </div>
                         </div>

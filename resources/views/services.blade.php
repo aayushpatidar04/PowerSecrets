@@ -29,7 +29,7 @@
                             <td>
                                 <button class="btn btn-sm btn-warning editBtn" data-id="{{ $service->id }}"
                                     data-name="{{ $service->name }}" data-slug="{{ $service->slug }}"
-                                    data-content="{{ $service->content }}" data-bs-toggle="modal"
+                                    data-content="{{ $service->content }}" data-meta_title="{{ $service->meta_title }}" data-meta_description="{{ $service->meta_description }}" data-meta_keywords="{{ $service->meta_keywords }}" data-json_data="{{ $service->json_data }}" data-bs-toggle="modal"
                                     data-bs-target="#editBlogModal">
                                     Edit
                                 </button>
@@ -65,6 +65,26 @@
                             <label class="form-label">Content <span class="text-danger">*</span></label>
                             <textarea id="summernoteAdd" name="content" required>{{ old('content') }}</textarea>
                         </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Meta Title <span class="text-danger">*</span></label>
+                            <input type="text" name="meta_title" value="{{ old('meta_title') }}" class="form-control" required>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label class="form-label">Meta Description <span class="text-danger">*</span></label>
+                            <textarea class="form-control" name="meta_description" required>{{ old('meta_description') }}</textarea>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Meta Keywords <span class="text-danger">*</span></label>
+                            <textarea class="form-control" name="meta_keywords" required>{{ old('meta_keywords') }}</textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Json Data <span class="text-danger">*</span></label>
+                            <textarea class="form-control" name="json_data" required>{{ old('json_data') }}</textarea>
+                        </div>
+
                         
                         <button type="submit" class="btn btn-success">Save</button>
                     </form>
@@ -97,6 +117,22 @@
                         <div class="mb-3">
                             <label class="form-label">Content</label>
                             <textarea name="content" id="editContent" required></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Meta Title</label>
+                            <input type="text" name="meta_title" id="editTitle" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Meta Description</label>
+                            <textarea class="form-control" name="meta_description" id="editDescription" required></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Meta Keywords</label>
+                            <textarea class="form-control" name="meta_keywords" id="editKeywords" required></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Json Data</label>
+                            <textarea class="form-control" name="json_data" id="editJson" required></textarea>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -146,6 +182,10 @@
                 $('#editBlogId').val(id);
                 $('#editName').val($(this).data('name'));
                 $('#editSlug').val($(this).data('slug'));
+                $('#editTitle').val($(this).data('meta_title'));
+                $('#editDescription').val($(this).data('meta_description'));
+                $('#editKeywords').val($(this).data('meta_keywords'));
+                $('#editJson').val($(this).data('json_data'));
 
                 // Set Summernote content
                 $('#editContent').summernote('code', $(this).data('content'));

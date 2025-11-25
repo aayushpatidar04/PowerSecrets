@@ -41,4 +41,9 @@ class OpenController extends Controller
         $service = Service::where('slug', $slug)->first();
         return view('audit-services', compact('service'));
     }
+
+    public function blog($slug){
+        $blog = Blog::where('slug', $slug)->first();
+        return view('blog-details', compact('blog'));
+    }
 }
