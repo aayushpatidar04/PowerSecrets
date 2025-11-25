@@ -44,60 +44,40 @@
             <div class="row g-0 mx-lg-0">
                 <div class="col-lg-8 about-text pb-5 ps-5 wow fadeIn" data-wow-delay="0.5s">
                     <div class="card border-0 m-5">
-                        <img src="{{ asset('assets/img/insights.jpeg') }}" class="rounded" alt="">
+                        <img src="{{ asset($featuredBlog->image) }}" class="rounded" alt="">
                         <div class="p-3 mt-3">
                             <div class="d-flex gap-5">
-                                <p class="py-2 px-3 rounded-pill text-primary" style="background: #DBEAFE;"><b>Featured</b>
+                                <p class="py-2 px-3 rounded-pill text-primary" style="background: #DBEAFE;">
+                                    <b>{{ $featuredBlog->category }}</b>
                                 </p>
-                                <p class="py-2">November 13, 2025</p>
+                                <p class="py-2">{{ \Carbon\Carbon::parse($featuredBlog->created_at)->format('F d, Y') }}
+                                </p>
                             </div>
-                            <h3>The Complete Guide to Industrial Energy Audits in 2024</h3>
-                            <p>Comprehensive overview of modern energy audit methodologies, emerging technologies, and
-                                regulatory compliance requirements. Learn how advanced analytics and IoT sensors are
-                                revolutionizing energy management in industrial facilities.</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="d-flex gap-3">
-                                    <img src="{{ asset('assets/img/author.jpeg') }}" style="width:50px; border-radius:50%;"
-                                        alt="Author">
-                                    <div>
-                                        <p class="text-dark m-0"><b>Rajesh Sharma</b></p>
-                                        <small>Senior Energy Auditor</small>
-                                    </div>
-                                </div>
-                                <div>
-                                    <a href="" class="text-primary">Read More &rarr;</a>
-                                </div>
+                            <h3>{{ $featuredBlog->title }}</h3>
+                            <p>{{ $featuredBlog->short_description }}</p>
+                            <div>
+                                <a href="" class="text-primary float-end">Read More &rarr;</a>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="col-lg-4 wow fadeIn pe-5 py-5" data-wow-delay="0.1s">
-                    <div class="card border-0 p-4 mb-3">
-                        <div class="d-flex gap-3">
-                            <p class="py-2 px-3 rounded text-success" style="background: #defeea;"><b>Safety</b></p>
-                            <p class="py-2">November 13, 2025</p>
+                    @foreach ($latestBlogs as $blog)
+                        <div class="card border-0 p-4 mb-3">
+                            <div class="d-flex gap-3">
+                                <p class="py-2 px-3 rounded" style="background: rgb(249, 224, 249); color: purple;">
+                                    <b>{{ $blog->category }}</b>
+                                </p>
+                                <p class="py-2">{{ \Carbon\Carbon::parse($blog->created_at)->format('F d, Y') }}</p>
+                            </div>
+                            <h4>{{ $blog->title }}</h4>
+                            <p>{{ $blog->short_description }}</p>
+                            <div>
+                                <a href="" style="color: purple;"><b>Read Article &rarr;</b></a>
+                            </div>
                         </div>
-                        <h4>New IS Standards for Electrical Safety Compliance</h4>
-                        <p>Updated Indian standards and their impact on industrial electrical safety protocols and
-                            compliance requirements.</p>
-                        <div>
-                            <a href="" class="text-success"><b>Read Article &rarr;</b></a>
-                        </div>
-                    </div>
-                    <div class="card border-0 p-4">
-                        <div class="d-flex gap-3">
-                            <p class="py-2 px-3 rounded" style="background: rgb(249, 224, 249); color: purple;"><b>Data
-                                    Centers</b></p>
-                            <p class="py-2">November 13, 2025</p>
-                        </div>
-                        <h4>Achieving PUE Below 1.3: Best Practices</h4>
-                        <p>Advanced strategies for data center efficiency optimization and cooling system performance
-                            enhancement.</p>
-                        <div>
-                            <a href="" style="color: purple;"><b>Read Article &rarr;</b></a>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -182,132 +162,24 @@
                 <h1>Recent Articles</h1>
             </div>
             <div id="articles" class="row g-0 mx-lg-0 justify-content-center">
-                <div class="col-lg-4 p-3 about-text wow fadeIn" data-wow-delay="0.5s">
-                    <div class="card border-0">
-                        <img src="{{ asset('assets/img/blog1.jpeg') }}" class="rounded" alt="">
-                        <div class="p-3 mt-3">
-                            <div class="d-flex gap-3 mb-2">
-                                <small class="rounded text-primary p-1 px-3" style="background: #DBEAFE;"><b>Data
-                                        Centers</b></small>
-                                <small class="p-1">Nov 13, 2025</small>
-                            </div>
-                            <h5>AI-Driven Data Center Cooling Optimization</h5>
-                            <p>How machine learning algorithms are revolutionizing data center thermal management and
-                                achieving unprecedented efficiency levels.</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <small>8 min read</small>
+                @foreach ($remainingBlogs as $blog)
+                    <div class="col-lg-4 p-3 about-text wow fadeIn" data-wow-delay="0.5s">
+                        <div class="card border-0">
+                            <img src="{{ asset($blog->image) }}" class="rounded" alt="">
+                            <div class="p-3 mt-3">
+                                <div class="d-flex gap-3 mb-2">
+                                    <small class="rounded text-primary p-1 px-3" style="background: #DBEAFE;"><b>{{ $blog->category }}</b></small>
+                                    <small class="p-1">{{ \Carbon\Carbon::parse($blog->created_at)->format('M d, Y') }}</small>
+                                </div>
+                                <h5>{{ $blog->title }}</h5>
+                                <p>{{ $blog->short_description }}</p>
                                 <div>
-                                    <a href="" class="text-primary">Read More &rarr;</a>
+                                    <a href="" class="text-primary float-end">Read More &rarr;</a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-4 p-3 about-text wow fadeIn" data-wow-delay="0.5s">
-                    <div class="card border-0">
-                        <img src="{{ asset('assets/img/blog2.jpeg') }}" class="rounded" alt="">
-                        <div class="p-3 mt-3">
-                            <div class="d-flex gap-3 mb-2">
-                                <small class="rounded text-primary p-1 px-3"
-                                    style="background: #DBEAFE;"><b>Thermography</b></small>
-                                <small class="p-1">Nov 13, 2025</small>
-                            </div>
-                            <h5>Advanced Thermography Techniques for Electrical Inspections</h5>
-                            <p>Professional techniques for interpreting thermal images and identifying critical electrical
-                                faults before they cause expensive failures.</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <small>6 min read</small>
-                                <div>
-                                    <a href="" class="text-primary">Read More &rarr;</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 p-3 about-text wow fadeIn" data-wow-delay="0.5s">
-                    <div class="card border-0">
-                        <img src="{{ asset('assets/img/hospital.jpeg') }}" class="rounded" alt="">
-                        <div class="p-3 mt-3">
-                            <div class="d-flex gap-3 mb-2">
-                                <small class="rounded text-primary p-1 px-3"
-                                    style="background: #DBEAFE;"><b>Healthcare</b></small>
-                                <small class="p-1">Nov 13, 2025</small>
-                            </div>
-                            <h5>Energy Management in Critical Healthcare Facilities</h5>
-                            <p>Balancing energy efficiency with patient safety requirements in hospitals and medical
-                                facilities through smart technologies.</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <small>7 min read</small>
-                                <div>
-                                    <a href="" class="text-primary">Read More &rarr;</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 p-3 about-text wow fadeIn" data-wow-delay="0.5s">
-                    <div class="card border-0">
-                        <img src="{{ asset('assets/img/hero-energy-audit.jpg') }}" class="rounded" alt="">
-                        <div class="p-3 mt-3">
-                            <div class="d-flex gap-3 mb-2">
-                                <small class="rounded text-primary p-1 px-3" style="background: #DBEAFE;"><b>Motors &
-                                        Drive</b></small>
-                                <small class="p-1">Nov 13, 2025</small>
-                            </div>
-                            <h5>Variable Frequency Drives: Selection and Sizing Guide</h5>
-                            <p>Complete guide to selecting, sizing, and implementing VFDs for maximum energy savings in
-                                industrial motor applications.</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <small>9 min read</small>
-                                <div>
-                                    <a href="" class="text-primary">Read More &rarr;</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 p-3 about-text wow fadeIn" data-wow-delay="0.5s">
-                    <div class="card border-0">
-                        <img src="{{ asset('assets/img/insights.jpeg') }}" class="rounded" alt="">
-                        <div class="p-3 mt-3">
-                            <div class="d-flex gap-3 mb-2">
-                                <small class="rounded text-primary p-1 px-3"
-                                    style="background: #DBEAFE;"><b>Lighting</b></small>
-                                <small class="p-1">Nov 13, 2025</small>
-                            </div>
-                            <h5>Smart Lighting Controls: Beyond Basic LED Upgrades</h5>
-                            <p>Advanced lighting control systems that adapt to occupancy, daylight, and operational
-                                schedules for maximum efficiency.</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <small>4 min read</small>
-                                <div>
-                                    <a href="" class="text-primary">Read More &rarr;</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 p-3 about-text wow fadeIn" data-wow-delay="0.5s">
-                    <div class="card border-0">
-                        <img src="{{ asset('assets/img/blog1.jpeg') }}" class="rounded" alt="">
-                        <div class="p-3 mt-3">
-                            <div class="d-flex gap-3 mb-2">
-                                <small class="rounded text-primary p-1 px-3" style="background: #DBEAFE;"><b>Energy
-                                        Efficiency</b></small>
-                                <small class="p-1">Nov 13, 2025</small>
-                            </div>
-                            <h5>Power Factor Correction: ROI Calculator and Implementation Guide</h5>
-                            <p>Step-by-step guide to implementing power factor correction with detailed cost-benefit
-                                analysis and real-world examples.</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <small>5 min read</small>
-                                <div>
-                                    <a href="" class="text-primary">Read More &rarr;</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
 
 
             </div>
@@ -344,7 +216,8 @@
         <div class="container about px-lg-0">
             <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
                 <h1 class="mb-4">Free Resources & Guides</span></h1>
-                <h6 class="text-primary">Download our comprehensive guides and checklists to enhance your energy management knowledge</h6>
+                <h6 class="text-primary">Download our comprehensive guides and checklists to enhance your energy management
+                    knowledge</h6>
             </div>
             <div class="row justify-content-center mx-lg-5 px-5">
                 <div id="articles" class="col-lg-4 about-text py-5 wow fadeIn" data-wow-delay="0.5s">
@@ -355,8 +228,9 @@
                             </span>
                         </div>
                         <h5 class="mb-3">Energy Audit Checklist</h5>
-                        <p>Comprehensive 50-point checklist for conducting preliminary energy assessments in industrial facilities.</p>
-                        
+                        <p>Comprehensive 50-point checklist for conducting preliminary energy assessments in industrial
+                            facilities.</p>
+
                         <div>
                             <a href="" class="btn bg-primary text-white"><b>Download PDF</b></a>
                         </div>
@@ -370,7 +244,8 @@
                             </span>
                         </div>
                         <h5 class="mb-3">Thermography Guide</h5>
-                        <p>Complete guide to thermal imaging applications, equipment selection, and image interpretation techniques.</p>
+                        <p>Complete guide to thermal imaging applications, equipment selection, and image interpretation
+                            techniques.</p>
                         <div>
                             <a href="" class="btn btn-danger">Download Guide</a>
                         </div>
@@ -384,7 +259,8 @@
                             </span>
                         </div>
                         <h5 class="mb-3">ROI Calculator</h5>
-                        <p>Interactive Excel calculator for evaluating energy efficiency project returns and payback periods.</p>
+                        <p>Interactive Excel calculator for evaluating energy efficiency project returns and payback
+                            periods.</p>
                         <div>
                             <a href="" class="btn btn-warning text-white">Download Tool</a>
                         </div>

@@ -107,12 +107,13 @@
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" id="services">Services</a>
                     <div class="dropdown-menu bg-light m-0">
-                        <a href="" class="dropdown-item">Energy Audit</a>
-                        <a href="" class="dropdown-item">Thermography Audit</a>
-                        <a href="" class="dropdown-item">Safety Audit</a>
-                        <a href="" class="dropdown-item">Data Center Audit</a>
-                        <a href="" class="dropdown-item">Data Center Audit</a>
-                        <a href="" class="dropdown-item">Energy Saver Solutions</a>
+                        @php
+                            $services = \DB::table('services')->get();
+                        @endphp
+                        @foreach ($services as $service)
+                            <a href="{{ Route('audit-services', ['slug' => $service->slug]) }}" class="dropdown-item">{{ $service->name }}</a>
+                        @endforeach
+                        
                     </div>
                 </div>
                 <a href="{{ Route('case-studies') }}" class="nav-item nav-link" id="case-studies">Case Studies</a>
