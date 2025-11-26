@@ -412,32 +412,33 @@
                     </div>
                 </div>
                 <div class="col-lg-6 quote-text py-5 wow fadeIn" data-wow-delay="0.5s">
-                    <div class="p-lg-5 pe-lg-0 rounded bg-white">
+                    <div class="p-5 rounded bg-white">
                         <div class="text-center">
                             <h3 class="text-primary"><i class="fa fa-download bg-primary text-white rounded-circle p-3"></i></h3>
                             <h3 class="mb-4">Get Your Free Guide Now</h3>
                             <p class="mb-4 pb-2">No spam, just valuable energy insights delivered to your inbox.</p>
                         </div>
-                        <form>
-                            <div class="row g-3 pe-5">
+                        <form action="{{ route('index-form') }}" method="POST">
+                            @csrf
+                            <div class="row g-3">
                                 <div class="col-12">
                                     <label class="text-dark" for="name">Full Name <span class="text-danger">*</span></label>
-                                    <input type="text" class="form-control border-0" id="name" placeholder="Enter your full name"
+                                    <input type="text" name="name" class="form-control border-0" id="name" placeholder="Enter your full name"
                                         style="height: 55px;" required>
                                 </div>
                                 <div class="col-12">
                                     <label class="text-dark" for="email">Business Email <span class="text-danger">*</span></label>
-                                    <input type="email" id="email" class="form-control border-0" placeholder="Enter your email"
+                                    <input type="email" name="email" id="email" class="form-control border-0" placeholder="Enter your email"
                                         style="height: 55px;" required>
                                 </div>
                                 <div class="col-12">
                                     <label class="text-dark" for="phone">Phone Number <span class="text-danger">*</span></label>
-                                    <input type="number" id="phone" class="form-control border-0" placeholder="9876543210"
+                                    <input type="number" name="phone" id="phone" class="form-control border-0" placeholder="9876543210"
                                         style="height: 55px;" requied>
                                 </div>
                                 <div class="col-12">
                                     <label class="text-dark" for="company-name">Company Name</label>
-                                    <input type="text" id="company-name" class="form-control border-0" placeholder="Your company name"
+                                    <input type="text" name="company" id="company-name" class="form-control border-0" placeholder="Your company name"
                                         style="height: 55px;">
                                 </div>
                                 

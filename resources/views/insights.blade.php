@@ -42,8 +42,8 @@
                     management</h6>
             </div>
             <div class="row g-0 mx-lg-0">
-                <div class="col-lg-8 about-text pb-5 ps-5 wow fadeIn" data-wow-delay="0.5s">
-                    <div class="card border-0 m-5">
+                <div class="col-lg-8 about-text pb-5 wow fadeIn" data-wow-delay="0.5s">
+                    <div class="card border-0 m-2">
                         <img src="{{ asset($featuredBlog->image) }}" class="rounded" alt="">
                         <div class="p-3 mt-3">
                             <div class="d-flex gap-5">
@@ -62,7 +62,7 @@
                     </div>
                 </div>
 
-                <div class="col-lg-4 wow fadeIn pe-5 py-5" data-wow-delay="0.1s">
+                <div class="col-lg-4 wow fadeIn py-5" data-wow-delay="0.1s">
                     @foreach ($latestBlogs as $blog)
                         <div class="card border-0 p-4 mb-3">
                             <div class="d-flex gap-3">
@@ -156,7 +156,7 @@
         </div>
     </div>
 
-    <div class="container bg-white overflow-hidden m-5 px-lg-5">
+    <div class="container bg-white overflow-hidden mb-3 px-lg-5">
         <div class="container about px-lg-0">
             <div class="mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
                 <h1>Recent Articles</h1>

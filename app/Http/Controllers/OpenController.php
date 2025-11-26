@@ -46,4 +46,15 @@ class OpenController extends Controller
         $blog = Blog::where('slug', $slug)->first();
         return view('blog-details', compact('blog'));
     }
+
+    public function index_form(Request $request){
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'phone' => 'required',
+            'company' => 'nullable'
+        ]);
+
+        return redirect()->route('index')->with('success', 'Form submitted successfully! Audit guide is shared over mentioned email.');
+    }
 }

@@ -126,6 +126,76 @@
     </nav>
     <!-- Navbar End -->
 
+    @if (session('success'))
+        <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 1050;">
+            <div class="card border-0">
+                <div class="alert alert-solid-success border border-success mb-0 p-3">
+                    <div class="d-flex align-items-start">
+                        <div class="me-2">
+                            <i class="feather-check-circle flex-shrink-0"></i>
+                        </div>
+                        <div class="text-fixed-white w-100">
+                            <div class="fw-semibold d-flex justify-content-between">
+                                Success
+                                <button type="button" class="btn-close p-0" data-bs-dismiss="alert"
+                                    aria-label="Close"><i class="fas fa-xmark"></i></button>
+                            </div>
+                            <div class="fs-12 op-8 mb-1">{{ session('success') }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endif
+    @if (session('error'))
+        <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 1050;">
+            <div class="card border-0">
+                <div class="alert alert-solid-danger border border-danger mb-0 p-3">
+                    <div class="d-flex align-items-start">
+                        <div class="me-2">
+                            <i class="feather-check-circle flex-shrink-0"></i>
+                        </div>
+                        <div class="text-fixed-white w-100">
+                            <div class="fw-semibold d-flex justify-content-between">
+                                Error
+                                <button type="button" class="btn-close p-0" data-bs-dismiss="alert"
+                                    aria-label="Close"><i class="fas fa-xmark"></i></button>
+                            </div>
+                            <div class="fs-12 op-8 mb-1">{{ session('error') }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endif
+    @if ($errors->any())
+        <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 1050;">
+            <div class="card border-0">
+                <div class="alert alert-solid-danger border border-danger mb-0 p-3">
+                    <div class="d-flex align-items-start">
+                        <div class="me-2">
+                            <i class="feather-check-circle flex-shrink-0"></i>
+                        </div>
+                        <div class="text-fixed-white w-100">
+                            <div class="fw-semibold d-flex justify-content-between">
+                                Error
+                                <button type="button" class="btn-close p-0" data-bs-dismiss="alert"
+                                    aria-label="Close"><i class="fas fa-xmark"></i></button>
+                            </div>
+                            <div class="fs-12 op-8 mb-1">
+                                <ol>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endif
+
 
     @yield('content')
     
